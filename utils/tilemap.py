@@ -1,6 +1,8 @@
 import csv
 from os import path
 
+# Tilemap class used to load .csv file
+
 class Tilemap():
     def __init__(self, file_path=""):
         self.file_path = file_path
@@ -31,6 +33,7 @@ class Tilemap():
             for row in reader:
                 self.rows+=1
                 self.map.append(row)
+            csvfile.close()
     
     # Return tile key at a given position
     def get_tile_key(self, position):

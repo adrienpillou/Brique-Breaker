@@ -1,9 +1,11 @@
 import pygame
 from .vector import Vector2
 
-# Object base class
+# GameObject base class
+
 class GameObject():
     def __init__(self, name, position, size):
+        self.name = name
         self.position = Vector2(position[0], position[1])
         self.sprites = []
         self.frame_index = 0
@@ -12,6 +14,9 @@ class GameObject():
         self.color = (255, 255, 255)
         self.solid = True
         self.z_order = 0
+
+    def __repr__(self):
+        return f"GameObject {self.name}"
 
     def get_rect(self):
         return pygame.Rect(self.position.x, self.position.y, self.size.x, self.size.y)

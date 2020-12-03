@@ -1,11 +1,14 @@
 import pygame
 from .gameobject import GameObject
+from .tweenease import *
 
 class Brick(GameObject):
     def __init__(self, name, position, size, lives = 1):
         super().__init__(name, position, size)
         self.lives = lives
         self.color = (216, 140, 36)
+        self.tween = Tween(1, EaseType.easeinquart)
+        self.hitted = False
 
     def set_lives(self, lives):
         self.lives = lives
@@ -21,3 +24,6 @@ class Brick(GameObject):
             self.color = (101, 101, 101)
         else:
             self.color = (255, 255, 255)
+
+    def update(self):
+        pass
